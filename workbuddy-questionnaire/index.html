@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>workbuddy-questionnaire</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(160deg, #e8f5e9 0%, #f1f8e9 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    background: #ffffff;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 36px 28px;
+    box-shadow: 0 8px 32px rgba(76, 175, 80, .18);
+    text-align: center;
+  }
+  .emoji { font-size: 52px; margin-bottom: 16px; }
+  h1 { font-size: 20px; color: #2e7d32; margin-bottom: 18px; }
+  .welcome {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    background: #f7fbf7;
+    border-radius: 12px;
+    padding: 18px 16px;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 17px;
+    color: #fff;
+    background: linear-gradient(135deg, #66bb6a, #43a047);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: opacity .2s;
+    text-decoration: none;
+  }
+  .btn:active { opacity: .8; }
+  .tip { margin-top: 16px; font-size: 12px; color: #9e9e9e; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="emoji">🐻‍❄️</div>
+    <h1>一个小小的问卷</h1>
+    <div class="welcome">
+      昨天影响到你的好心情了，真的很抱歉，能否给哈基海一个机会，填一个小小的问卷，了解一下如何影响到你的心情了
+    </div>
+    <button class="btn" id="enterBtn">进入问卷</button>
+    <div class="tip">大概只需要 30 秒 · 哈基海在此谢过</div>
+  </div>
+
+<script>
+(function () {
+  /* ============================================================
+   * 腾讯问卷配置（必改）
+   * 1. 打开 https://wj.qq.com 用 QQ/微信登录
+   * 2. 「创建问卷」→「文本编辑」或「空白创建」，编辑好题目后点「发布并分享」
+   * 3. 在分享面板选择「复制链接」，形如：https://wj.qq.com/s2/12345678/abcd/
+   * 4. 把下面的 "你的问卷链接" 替换成该链接，保存即可
+   * ============================================================ */
+  var SURVEY_URL = "https://wj.qq.com/s2/28087348/vc14/"; // ← 只改这里，例如 "https://wj.qq.com/s2/12345678/abcd/"
+
+  document.getElementById('enterBtn').addEventListener('click', function () {
+    if (SURVEY_URL.indexOf('https://wj.qq.com/s2/28087348/vc14/') !== -1) {
+      alert('问卷链接还没配置：请先打开 index.html，把 SURVEY_URL 换成腾讯问卷的分享链接');
+      return;
+    }
+    window.location.href = SURVEY_URL;
+  });
+})();
+</script>
+</body>
+</html>
